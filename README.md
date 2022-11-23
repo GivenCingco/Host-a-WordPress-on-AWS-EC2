@@ -76,9 +76,23 @@ Type the following commands in your terminal:
   -'***sudo apt install mariadb-server mariadb-client -y***'
   - '***sudo systemctl start mariadb***' to start the service. 
   - '***sudo systemctl status mariadb***' to check if the service is running. 
-  
 
-  
+# Setup root password of the database
+- To make the database secure type the command '***mysql_secure_installation***'
+  - It will ask you a few questions and you to give it answers/confirmations (press enter for no answers)
+    -  Enter current password for root (enter for none):Enter 
+    -  Switch to unix_socket authentication [Y/n]: Enter
+    -  Change the root password[y/n]: Y
+    -  New password: [provide your password]
+    -  Re-enter password: [provide the same password]
+    -  Remove anonymous users [Y/n]: Y (we will create our own)
+    -  Disallow root login remotely[Y/n]: Y
+    -  Remove test database and access to it [y/n]: Y
+    -  Reload privileges table now [y/n]: Y
+    
+![Screenshot 2022-11-23 at 16 14 19](https://user-images.githubusercontent.com/50238769/203568956-4451d65b-6473-456f-b1d6-b85150073943.png)
+
+
 
   
 
