@@ -1,25 +1,29 @@
 # WordPress website hosted on an Amazon EC2 instance
 
-You must have an existing AWS account. Every resource we use will be under [Free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all) 
-
+You must have an existing AWS account. Every resource we use will be under free tier. Free tier: In your first year includes 750 hours of t2.micro (or t3.micro in the Regions in which t2.micro is unavailable) instance usage on free tier AMIs per month, 30 GiB of EBS storage, 2 million IOs, 1 GB of snapshots, and 100 GB of bandwidth to the internet.
 - Sign into the AWS management console and ensure that you are in the N.Virginia(us-east-1) region.
 - Go to the EC2 [dashboard](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstances:) and click the orange 'Launch Instance' button.
 
 ![Screenshot 2022-11-22 at 15 22 43](https://user-images.githubusercontent.com/50238769/203331652-41a764ab-3ebf-45a6-a9e4-2dbd1997f9aa.png)
 
-- Select the Ubuntu SERVER 22.04 lts (hvm), ssd Volume Type AMI
+- Select the Ubuntu SERVER 22.04 lts (hvm), ssd Volume Type AMI.
 
 ![Screenshot 2022-11-22 at 15 37 44](https://user-images.githubusercontent.com/50238769/203333206-f9a5e284-dcd5-4d32-bb73-904f3b612aa4.png)
-  - Give the server a name 
+  - Give the server a name. 
   - Select the t2.micro istance type (free tier eligible).
-  - Create a new key pair
+  - Create a new key pair:
       -Name your keypair.
       - Type and format must be RSA and .pem file format.
 
 - In the Network settings section create security group inbound rules. Security groups are stateful, meaning any changes applied to an incoming rule will be automatically applied to the outgoing rule.
   - SSH - Allow SSH traffic from your machine IP Address by selecting 'My IP' under source.
-  - HTTPS - Allow HTTPS traffic from anywhere(0.0.0.0/0)
-  - HTTP - Allow HTTP traffic from anywhere (0.0.0.0/0)
-
-- Configure Storage to be 20 GiB
+  - HTTPS - Allow HTTPS traffic from anywhere(0.0.0.0/0).
+  - HTTP - Allow HTTP traffic from anywhere (0.0.0.0/0).
+- Configure Storage to be 20 GiB.
 - Continue through the setup keeping the defaults launch the instance.
+
+
+#SSH to your EC2
+- Go to downloads where you key pair is stored.
+- Create a folder and call it 'SSH'. 
+- Copy the key pair and paste it inside the newly created SSH folder. 
