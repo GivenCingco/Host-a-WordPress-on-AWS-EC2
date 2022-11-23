@@ -24,6 +24,17 @@ You must have an existing AWS account. Every resource we use will be under free 
 
 
 #SSH to your EC2
-- Go to downloads where you key pair is stored.
+- Go to downloads where your key pair is stored.
 - Create a folder and call it 'SSH'. 
 - Copy the key pair and paste it inside the newly created SSH folder. 
+- Open your terminal type the following commands in the screenshot below to change into the directory where your key pair is stored. 
+
+![Screenshot 2022-11-23 at 14 38 47](https://user-images.githubusercontent.com/50238769/203549430-657fab69-27ab-4592-bf41-c935793d8ea9.png)
+
+
+- Select the your EC2, under the details tab selct your Public IPv4 address
+
+![Screenshot 2022-11-23 at 14 44 38](https://user-images.githubusercontent.com/50238769/203550377-731fd2c9-439a-4fc3-ab78-c141d479eec2.png)
+
+
+
