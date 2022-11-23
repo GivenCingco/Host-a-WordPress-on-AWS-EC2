@@ -16,8 +16,8 @@ You must have an existing AWS account. Every resource we use will be under [Free
       -Name your keypair.
       - Type and format must be RSA and .pem file format.
 
-- In the Network settings section create security group
-  - SSH - Allow SSH traffic from anywhere(0.0.0.0/0)
+- In the Network settings section create security group inbound rules. Security groups are stateful, meaning any changes applied to an incoming rule will be automatically applied to the outgoing rule.
+  - SSH - Allow SSH traffic from your machine IP Address by selecting 'My IP' under source.
   - HTTPS - Allow HTTPS traffic from anywhere(0.0.0.0/0)
   - HTTP - Allow HTTP traffic from anywhere (0.0.0.0/0)
 
