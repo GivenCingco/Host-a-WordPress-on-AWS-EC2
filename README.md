@@ -136,6 +136,6 @@ Looking at the screenshot above you can see that all the permissions are for the
       - Enter password (Enter password that we previously set when setting up MariaDB)
       - '***create database wordpress;*** to create database. 
       - To create user type command '***"wpadmin" identified by "wpadminpass";***
-      - To grant access for the user we just created to all the objects of the WordPress database we created, type the command '***grant all privileges on wordpress.* to "wpadmin";
+      - To grant access for the user we just created to all the objects of the WordPress database we created, type the command '***grant all privileges on wordpress.* to "wpadmin"***';
 
 
