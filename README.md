@@ -101,6 +101,9 @@ Type these commands
 
 Download WordPress from [https://wordpress.org/download/](https://wordpress.org/download/)
 
-  
+- Go to the button ‘download Wordpress’ right click on it to copy the link address
+
+  ![Screenshot 2022-11-23 at 16 35 24](https://user-images.githubusercontent.com/50238769/203573668-da9bb24c-3aca-4205-b0fa-bdb6b3b33f08.png)
+
 
 
