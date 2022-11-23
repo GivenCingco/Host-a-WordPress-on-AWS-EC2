@@ -32,9 +32,14 @@ You must have an existing AWS account. Every resource we use will be under free 
 ![Screenshot 2022-11-23 at 14 38 47](https://user-images.githubusercontent.com/50238769/203549430-657fab69-27ab-4592-bf41-c935793d8ea9.png)
 
 
-- Select the your EC2, under the details tab selct your Public IPv4 address
+- Select the your EC2, under the details tab select your Public IPv4 address.
 
 ![Screenshot 2022-11-23 at 14 44 38](https://user-images.githubusercontent.com/50238769/203550377-731fd2c9-439a-4fc3-ab78-c141d479eec2.png)
 
-
+- Go back to your terminal to login to your EC2 via SSH
+- Follow these commands below:
+  - Type '***chmod 400[Key pair name]***' and press enter. 
+  - Type '***ssh ubuntu@[Public IPv4 address] -i [Key pair name]***' and press enter. Type yes when prompted if you want to continue connecting. 
+  - Type '***sudu su -***' to have root priviledges. 
+  
 
