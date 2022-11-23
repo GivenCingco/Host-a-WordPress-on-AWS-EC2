@@ -95,9 +95,11 @@ Type the following commands in your terminal:
 - To ensure that all the configurations are saved type the command '***systemctl restart mariadb***'
 
 # Install PHP on the server
+
 Type these commands
-- '***apt install php php-mysql php-gh php-cli php-common -y***' to install php
-- 
+- '***apt install php php-mysql php-gd php-cli php-common -y***' to install php
+
+Download WordPress from [https://wordpress.org/download/](https://wordpress.org/download/)
 
   
 
