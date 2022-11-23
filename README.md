@@ -122,6 +122,20 @@ Download WordPress from [https://wordpress.org/download/](https://wordpress.org/
   
 ![Screenshot 2022-11-23 at 17 00 53](https://user-images.githubusercontent.com/50238769/203579033-9a1df57b-d85c-43c9-a1ec-7a4d979b6455.png)
 
+Looking at the screenshot above you can see that all the permissions are for the root user. 
+- Apache server is run by data user, so we have to change the  ownership from root to data user so that we can access the pages. 
+- To change the permissions type the command '*** chown www-data:www-data -R /var/www/html/***'
 
+![Screenshot 2022-11-23 at 17 06 39](https://user-images.githubusercontent.com/50238769/203580254-3507273c-f07a-4773-91c0-ecffdcef6171.png)
+- From the screenshot above you can see the permissions have changed from root to www-data (data user). 
+- Remove the index.html page of the apache server, because when you browse the page (EC2 IP address) you will still see the apache default page which is still rendering  Type the command '***- rm  -rf index.html***'  
+- Refresh your browser and you will now see the WordPress setup page. Select your preferred language ans click the continue button. 
+- To connect to the database to establish connection and setup database credentials
+   - Type the following commands:
+      - '***mysql u- root -p***'.
+      - Enter password (Enter password that we previously set when setting up MariaDB)
+      - '***create database wordpress;*** to create database. 
+      - To create user type command '***"wpadmin" identified by "wpadminpass";***
+      - To grant access for the user we just created to all the objects of the WordPress database we created, type the command '***grant all privileges on wordpress.* to "wpadmin";
 
 
