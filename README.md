@@ -92,6 +92,8 @@ Type the following commands in your terminal:
     
 ![Screenshot 2022-11-23 at 16 14 19](https://user-images.githubusercontent.com/50238769/203568956-4451d65b-6473-456f-b1d6-b85150073943.png)
 
+- To ensure that all the configurations are saved type the command '***systemctl restart mariadb***'
+
 
 
   
