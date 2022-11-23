@@ -58,6 +58,22 @@ Type the following commands in your terminal:
   -Type '***systemctl status apache2***' and press enter. 
   
   ![Screenshot 2022-11-23 at 15 49 40](https://user-images.githubusercontent.com/50238769/203563438-cf5abe67-b83d-4929-88d8-9257567e0bd1.png)
+  
+  - If apache2 is not running type '***systemctl start apache2***'
+  - Copy your EC2 Public IPv4 address and paste it on your browser, Ubuntu apache2 default page should appear.
+  
+  ![Screenshot 2022-11-23 at 15 56 51](https://user-images.githubusercontent.com/50238769/203565041-eb98e081-bd5a-4ed3-815f-2168fcc4a324.png)
+  
+  ## Debugging If the page doesn't appear
+  - Check your security groups( HTTP/ HTTPS inbound rules). 
+  - Check if apache2 is running, if it's not not restart the service. 
+
+- Type '***systemctl enable apache2***' to enable the service so that you dont have to occassionally enable the EC2 machine manually, this is because the service occassionally stops. 
+
+
+# Install MariaDB
+
+  
 
   
 
