@@ -72,6 +72,11 @@ Type the following commands in your terminal:
 
 
 # Install MariaDB
+-Type the following commands to install MariaDB
+  -'***sudo apt install mariadb-server mariadb-client -y***'
+  - '***sudo systemctl start mariadb***' to start the service. 
+  - '***sudo systemctl status mariadb***' to check if the service is running. 
+  
 
   
 
