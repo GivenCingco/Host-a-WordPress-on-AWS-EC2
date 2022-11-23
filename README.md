@@ -140,6 +140,7 @@ Looking at the screenshot above you can see that all the permissions are for the
 
 ![install-step3_v47](https://user-images.githubusercontent.com/50238769/203584444-bfc44cdc-6944-4d6b-b910-8d0c4fca2056.png)
 
-- Enter the correct databse deatils on the page. 
-- Run the installation and enter your details.  
+- Enter the correct databse details on the page like on the screenshot above. 
+- Click on 'Run the installation' and enter your details.  
+![zxxIj](https://user-images.githubusercontent.com/50238769/203585997-ab7a8ff7-4666-49a2-976e-1aa9100c5b18.png)
 
