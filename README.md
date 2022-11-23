@@ -138,4 +138,8 @@ Looking at the screenshot above you can see that all the permissions are for the
       - To create user type command '***"wpadmin" identified by "wpadminpass";***
       - To grant access for the user we just created to all the objects of the WordPress database we created, type the command '***grant all privileges on wordpress.* to "wpadmin"***';
 
+![install-step3_v47](https://user-images.githubusercontent.com/50238769/203584444-bfc44cdc-6944-4d6b-b910-8d0c4fca2056.png)
+
+- Enter the correct databse deatils on the page. 
+- Run the installation and enter your details. 
 
