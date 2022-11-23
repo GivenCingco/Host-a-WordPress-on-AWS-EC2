@@ -104,6 +104,24 @@ Download WordPress from [https://wordpress.org/download/](https://wordpress.org/
 - Go to the button ‘download Wordpress’ right click on it to copy the link address
 
   ![Screenshot 2022-11-23 at 16 35 24](https://user-images.githubusercontent.com/50238769/203573668-da9bb24c-3aca-4205-b0fa-bdb6b3b33f08.png)
+- Type this commands '***apt install wget unzip -y***' - we will use these packages to download PHP from the link address we copied, and unzip the zipped file we will download.
+- Download WordPress from the link - Type the command '***wget https://wordpress.org/latest.zip**'
+- Type command '***ls***' to list file in the directory
+
+![Screenshot 2022-11-23 at 16 42 16](https://user-images.githubusercontent.com/50238769/203575010-2dde2c23-57c0-4b24-a4aa-b16936acb61a.png)
+
+- Type command '***unzip latest.zip***' to unzip the WordPress zip file we downloaded. 
+- Type command '***ls***' WordPress folder should appear. 
+- To list all the content type the command '***cd wordpress/***'
+- Type the following commands to copy all the content to the ***/var/www/html/*** directory
+  - ***cd wordpress/***
+  - ***cd ..*** 
+  - ***cp -r wordpress/* /var/www/html***
+  - ***cd /var/www/html***
+  - ***ls -l***
+  
+![Screenshot 2022-11-23 at 17 00 53](https://user-images.githubusercontent.com/50238769/203579033-9a1df57b-d85c-43c9-a1ec-7a4d979b6455.png)
+
 
 
 
