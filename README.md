@@ -49,5 +49,16 @@ Type the following commands in your terminal:
   - '***sudo apt upgrade -*** and press enter. Type yes when prompted if your want to continue.
   - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape.
   <img width="1440" alt="Screenshot 2022-11-23 at 15 43 53 (2)" src="https://user-images.githubusercontent.com/50238769/203562140-1f42e80b-461f-4107-94d3-df72dfe329e5.png">
+  
+  # Setup the LAMP server  (this will enable us to run PHP on the server)
+  ## Install apache2
+  - Type '***apt install apache2 -y***'
+  - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape.
+  ## Check status if Apache2 is running
+  -Type '***systemctl status apache2***' and press enter. 
+  
+  ![Screenshot 2022-11-23 at 15 49 40](https://user-images.githubusercontent.com/50238769/203563438-cf5abe67-b83d-4929-88d8-9257567e0bd1.png)
+
+  
 
 
