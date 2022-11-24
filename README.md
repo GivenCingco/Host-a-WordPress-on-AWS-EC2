@@ -1,5 +1,8 @@
 # WordPress website hosted on an Amazon EC2 instance
 
+## What is an Amazon EC2 instance?
+An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC2) for running applications on the Amazon Web Services (AWS) infrastructure. Amazon provides various types of instances with different configurations of CPU, memory, storage and networking resources to suit user needs. Each type is available in various sizes to address specific workload requirements.
+
 You must have an existing AWS account. Every resource we use will be under free tier. ***Free tier: In your first year includes 750 hours of t2.micro (or t3.micro in the Regions in which t2.micro is unavailable) instance usage on free tier AMIs per month, 30 GiB of EBS storage, 2 million IOs, 1 GB of snapshots, and 100 GB of bandwidth to the internet***.
 - Sign into the AWS management console and ensure that you are in the N.Virginia(us-east-1) region.
 - Go to the EC2 [dashboard](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstances:) and click the orange 'Launch Instance' button.
@@ -14,9 +17,21 @@ You must have an existing AWS account. Every resource we use will be under free 
 ![Screenshot 2022-11-22 at 15 37 44](https://user-images.githubusercontent.com/50238769/203333206-f9a5e284-dcd5-4d32-bb73-904f3b612aa4.png)
   - Give the server a name. 
   - Select the t2.micro istance type (free tier eligible).
+
+## What is a key pair?
+A key pair, consisting of a public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an Amazon EC2 instance. 
+
+
+![Screenshot 2022-11-08 at 13 30 53](https://user-images.githubusercontent.com/50238769/203737962-e3a827e3-46c1-4c86-8ca3-4474c0bcfa74.png)
+
+
   - Create a new key pair:
       -Name your keypair.
       - Type and format must be RSA and .pem file format.
+
+## What is a security Group?
+
+A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance. 
 
 - In the Network settings section create security group inbound rules. Security groups are stateful, meaning any changes applied to an incoming rule will be automatically applied to the outgoing rule.
   - SSH - Allow SSH traffic from from anywhere(0.0.0.0/0). 
@@ -26,7 +41,7 @@ You must have an existing AWS account. Every resource we use will be under free 
 - Continue through the setup keeping the defaults launch the instance.
 
 
-#Login to your EC2 via SSh
+# Login to your EC2 via SSh
 - Go to downloads where your key pair is stored.
 - Create a folder and call it 'SSH'. 
 - Copy the key pair and paste it inside the newly created SSH folder. 
