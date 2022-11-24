@@ -169,6 +169,6 @@ Looking at the screenshot above you can see that all the permissions are for the
 - Enter all the required fields and click the 'Install WordPress' button'.
 - You will be taken to a login page where you will enter your credentials. If the login is successful you should be taken to your WordPress admin panel.
 
-##NB
+## NB
 I accidentally left SSH open to all IP addresses and had to delete the rule in my security group. It is not a good security practice to leave this open because anyone in the world could gain access to your EC2 Instance and all of its data.
 
