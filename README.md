@@ -54,7 +54,7 @@ A security group acts as a virtual firewall for your EC2 instances to control in
 
 ![Screenshot 2022-11-23 at 14 44 38](https://user-images.githubusercontent.com/50238769/203550377-731fd2c9-439a-4fc3-ab78-c141d479eec2.png)
 
-## SSh into EC2 instance via terminal
+## SSH into EC2 instance via terminal
 - Go back to your terminal to login to your EC2 via SSH
 - Execute these commands below:
   - Type '***chmod 400[Key pair name]***' and press enter. 
@@ -76,7 +76,7 @@ Execute the following commands:
   - Execute '***apt install apache2 -y***'
   - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape.
   ## Check status if Apache2 is running
-  -Execute '***systemctl status apache2***'. 
+  - Execute '***systemctl status apache2***'. 
   
   
   ![Screenshot 2022-11-23 at 15 49 40](https://user-images.githubusercontent.com/50238769/203563438-cf5abe67-b83d-4929-88d8-9257567e0bd1.png)
