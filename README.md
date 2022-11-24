@@ -54,7 +54,7 @@ A security group acts as a virtual firewall for your EC2 instances to control in
 
 ![Screenshot 2022-11-23 at 14 44 38](https://user-images.githubusercontent.com/50238769/203550377-731fd2c9-439a-4fc3-ab78-c141d479eec2.png)
 
-## SSh into instance via terminal
+## SSh into EC2 instance via terminal
 - Go back to your terminal to login to your EC2 via SSH
 - Execute these commands below:
   - Type '***chmod 400[Key pair name]***' and press enter. 
