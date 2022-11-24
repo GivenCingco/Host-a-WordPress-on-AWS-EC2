@@ -50,7 +50,7 @@ A security group acts as a virtual firewall for your EC2 instances to control in
 ![Screenshot 2022-11-23 at 14 38 47](https://user-images.githubusercontent.com/50238769/203549430-657fab69-27ab-4592-bf41-c935793d8ea9.png)
 
 
-- Select the your EC2, under the details tab select your Public IPv4 address.
+- Select the your EC2, under the details tab copy your Public IPv4 address.
 
 ![Screenshot 2022-11-23 at 14 44 38](https://user-images.githubusercontent.com/50238769/203550377-731fd2c9-439a-4fc3-ab78-c141d479eec2.png)
 
@@ -65,22 +65,24 @@ A security group acts as a virtual firewall for your EC2 instances to control in
 Execute the following commands:
   - '***sudo apt update -y*** and press enter. 
   - '***sudo apt upgrade -*** and press enter. Type yes when prompted if your want to continue.
-  - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape.
+  - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape. Do this each time you encounter the error.
+
+
   <img width="1440" alt="Screenshot 2022-11-23 at 15 43 53 (2)" src="https://user-images.githubusercontent.com/50238769/203562140-1f42e80b-461f-4107-94d3-df72dfe329e5.png">
   
   # Setup the LAMP server  (this will enable us to run PHP on the server)
   
   ## Install apache2
-  - Type '***apt install apache2 -y***'
+  - Execute '***apt install apache2 -y***'
   - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape.
   ## Check status if Apache2 is running
-  -Type '***systemctl status apache2***' and press enter. 
+  -Execute '***systemctl status apache2***'. 
   
   
   ![Screenshot 2022-11-23 at 15 49 40](https://user-images.githubusercontent.com/50238769/203563438-cf5abe67-b83d-4929-88d8-9257567e0bd1.png)
   
   
-  - If apache2 is not running type '***systemctl start apache2***'
+  - If apache2 is not running execute '***systemctl start apache2***'
   - Copy your EC2 Public IPv4 address and paste it on your browser, Ubuntu apache2 default page should appear.
   
   ![Screenshot 2022-11-23 at 15 56 51](https://user-images.githubusercontent.com/50238769/203565041-eb98e081-bd5a-4ed3-815f-2168fcc4a324.png)
@@ -89,17 +91,17 @@ Execute the following commands:
   - Check your security groups( HTTP/ HTTPS inbound rules). 
   - Check if apache2 is running, if it's not not restart the service. 
 
-- Type '***systemctl enable apache2***' to enable the service so that you dont have to occassionally enable the EC2 machine manually, this is because the service occassionally stops. 
+- Execute '***systemctl enable apache2***' to enable the service so that you dont have to occassionally enable the EC2 machine manually, this is because the service occassionally stops. 
 
 
 # Install MariaDB
--Type the following commands to install MariaDB
+-Execute the following commands to install MariaDB
   -'***sudo apt install mariadb-server mariadb-client -y***'
   - '***sudo systemctl start mariadb***' to start the service. 
   - '***sudo systemctl status mariadb***' to check if the service is running. 
 
 # Setup root password of the database
-- Secure your MariaDB installation by typing the command '***mysql_secure_installation***'. When prompted, answer Y.
+- Secure your MariaDB installation by executing the command '***mysql_secure_installation***'. When prompted, answer Y.
   - It will ask you a few questions and you have to give it answers/confirmations (press enter for no answers).
     -  Enter current password for root (enter for none):Enter 
     -  Switch to unix_socket authentication [Y/n]: Enter
@@ -117,7 +119,7 @@ Execute the following commands:
 
 # Install PHP on the server
 
-Type these commands
+Execute these commands
 - '***apt install php php-mysql php-gd php-cli php-common -y***' to install php
 
 Download WordPress from [https://wordpress.org/download/](https://wordpress.org/download/)
@@ -125,16 +127,16 @@ Download WordPress from [https://wordpress.org/download/](https://wordpress.org/
 - Go to the button ‘download Wordpress’ right click on it to copy the link address
 
   ![Screenshot 2022-11-23 at 16 35 24](https://user-images.githubusercontent.com/50238769/203573668-da9bb24c-3aca-4205-b0fa-bdb6b3b33f08.png)
-- Type this commands '***apt install wget unzip -y***' - we will use these packages to download PHP from the link address we copied, and unzip the zipped file we will download.
+- Execute these commands '***apt install wget unzip -y***' - we will use these packages to download PHP from the link address we copied, and unzip the zipped file we will download.
 - Download WordPress from the link - Type the command '***wget https://wordpress.org/latest.zip**'
-- Type command '***ls***' to list file in the directory
+- Execute '***ls***' to list file in the directory
 
 ![Screenshot 2022-11-23 at 16 42 16](https://user-images.githubusercontent.com/50238769/203575010-2dde2c23-57c0-4b24-a4aa-b16936acb61a.png)
 
-- Type command '***unzip latest.zip***' to unzip the WordPress zip file we downloaded. 
-- Type command '***ls***' WordPress folder should appear. 
-- To list all the content type the command '***cd wordpress/***'
-- Type the following commands to copy all the content to the ***/var/www/html/*** directory
+- Execute command '***unzip latest.zip***' to unzip the WordPress zip file we downloaded. 
+- Execute command '***ls***' WordPress folder should appear. 
+- To list all the content execute the command '***cd wordpress/***'
+- Execute the following commands to copy all the content to the ***/var/www/html/*** directory
   - ***cd wordpress/***
   - ***cd ..*** 
   - ***cp -r wordpress/* /var/www/html***
@@ -145,14 +147,14 @@ Download WordPress from [https://wordpress.org/download/](https://wordpress.org/
 
 Looking at the screenshot above you can see that all the permissions are for the root user. 
 - Apache server is run by data user, so we have to change the  ownership from root to data user so that we can access the pages. 
-- To change the permissions type the command '*** chown www-data:www-data -R /var/www/html/***'
+- To change the permissions execute the command '*** chown www-data:www-data -R /var/www/html/***'
 
 ![Screenshot 2022-11-23 at 17 06 39](https://user-images.githubusercontent.com/50238769/203580254-3507273c-f07a-4773-91c0-ecffdcef6171.png)
 - From the screenshot above you can see the permissions have changed from root to www-data (data user). 
-- Remove the index.html page of the apache server, because when you browse the page (EC2 IP address) you will still see the apache default page which is still rendering  Type the command '***- rm  -rf index.html***'  
+- Remove the index.html page of the apache server, because when you browse the page (EC2 IP address) you will still see the apache default page which is still rendering  execute the command '***- rm  -rf index.html***'  
 - Refresh your browser and you will now see the WordPress setup page. Select your preferred language ans click the continue button. 
 - To connect to the database to establish connection and setup database credentials
-   - Type the following commands:
+   - Execute the following commands:
       - '***mysql u- root -p***'.
       - Enter password (Enter password that we previously set when setting up MariaDB)
       - '***create database wordpress;*** to create database. 
