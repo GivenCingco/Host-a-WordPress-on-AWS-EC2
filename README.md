@@ -1,6 +1,6 @@
 # WordPress website hosted on an Amazon EC2 instance
 
-You must have an existing AWS account. Every resource we use will be under free tier. Free tier: In your first year includes 750 hours of t2.micro (or t3.micro in the Regions in which t2.micro is unavailable) instance usage on free tier AMIs per month, 30 GiB of EBS storage, 2 million IOs, 1 GB of snapshots, and 100 GB of bandwidth to the internet.
+You must have an existing AWS account. Every resource we use will be under free tier. ***Free tier: In your first year includes 750 hours of t2.micro (or t3.micro in the Regions in which t2.micro is unavailable) instance usage on free tier AMIs per month, 30 GiB of EBS storage, 2 million IOs, 1 GB of snapshots, and 100 GB of bandwidth to the internet***.
 - Sign into the AWS management console and ensure that you are in the N.Virginia(us-east-1) region.
 - Go to the EC2 [dashboard](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstances:) and click the orange 'Launch Instance' button.
 
