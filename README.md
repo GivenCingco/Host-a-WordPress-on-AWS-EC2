@@ -58,9 +58,9 @@ A security group acts as a virtual firewall for your EC2 instances to control in
 ## SSH into EC2 instance via terminal
 - Go back to your terminal to login to your EC2 via SSH
 - Execute these commands below:
-  - Type '***chmod 400[Key pair name]***' and press enter. 
-  - Type '***ssh ubuntu@[Public IPv4 address] -i [Key pair name]***' and press enter. Type yes when prompted if you want to continue connecting. 
-  - Type '***sudo su -***' to have root priviledges. 
+  - '***chmod 400[Key pair name]***' and press enter. 
+  - '***ssh ubuntu@[Public IPv4 address] -i [Key pair name]***' and press enter. Type yes when prompted if you want to continue connecting. 
+  - '***sudo su -***' to have root priviledges. 
 
 ## Update and upgrade LAMP packages. 
 Execute the following commands:
