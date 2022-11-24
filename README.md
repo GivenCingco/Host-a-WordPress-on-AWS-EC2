@@ -1,5 +1,6 @@
-## Everything was done on a Mac, so other steps may differ if you use a different operating system.
-# WordPress website hosted on an Amazon EC2 instance
+# How to host a WordPress website for free for a year on AWS using Amazon Linux EC2.
+### Everything was done on a Mac, so other steps may differ if you use a different operating system.
+
 
 ## What is an Amazon EC2 instance?
 An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC2) for running applications on the Amazon Web Services (AWS) infrastructure. Amazon provides various types of instances with different configurations of CPU, memory, storage and networking resources to suit user needs. Each type is available in various sizes to address specific workload requirements.
