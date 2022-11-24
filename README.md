@@ -6,7 +6,10 @@ You must have an existing AWS account. Every resource we use will be under free 
 
 ![Screenshot 2022-11-22 at 15 22 43](https://user-images.githubusercontent.com/50238769/203331652-41a764ab-3ebf-45a6-a9e4-2dbd1997f9aa.png)
 
+
 - Select the Ubuntu SERVER 22.04 lts (hvm), ssd Volume Type AMI.
+
+
 
 ![Screenshot 2022-11-22 at 15 37 44](https://user-images.githubusercontent.com/50238769/203333206-f9a5e284-dcd5-4d32-bb73-904f3b612aa4.png)
   - Give the server a name. 
@@ -38,26 +41,29 @@ You must have an existing AWS account. Every resource we use will be under free 
 
 ## SSh into instance via terminal
 - Go back to your terminal to login to your EC2 via SSH
-- Follow these commands below:
+- Execute these commands below:
   - Type '***chmod 400[Key pair name]***' and press enter. 
   - Type '***ssh ubuntu@[Public IPv4 address] -i [Key pair name]***' and press enter. Type yes when prompted if you want to continue connecting. 
   - Type '***sudo su -***' to have root priviledges. 
 
 ## Update and upgrade LAMP packages. 
-Type the following commands in your terminal:
+Execute the following commands:
   - '***sudo apt update -y*** and press enter. 
   - '***sudo apt upgrade -*** and press enter. Type yes when prompted if your want to continue.
   - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape.
   <img width="1440" alt="Screenshot 2022-11-23 at 15 43 53 (2)" src="https://user-images.githubusercontent.com/50238769/203562140-1f42e80b-461f-4107-94d3-df72dfe329e5.png">
   
   # Setup the LAMP server  (this will enable us to run PHP on the server)
+  
   ## Install apache2
   - Type '***apt install apache2 -y***'
   - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape.
   ## Check status if Apache2 is running
   -Type '***systemctl status apache2***' and press enter. 
   
+  
   ![Screenshot 2022-11-23 at 15 49 40](https://user-images.githubusercontent.com/50238769/203563438-cf5abe67-b83d-4929-88d8-9257567e0bd1.png)
+  
   
   - If apache2 is not running type '***systemctl start apache2***'
   - Copy your EC2 Public IPv4 address and paste it on your browser, Ubuntu apache2 default page should appear.
