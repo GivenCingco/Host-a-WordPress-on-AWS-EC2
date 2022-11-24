@@ -90,7 +90,7 @@ Execute the following commands:
   
   ## Debugging If the page doesn't appear
   - Check your security groups( HTTP/ HTTPS inbound rules). 
-  - Check if apache2 is running, if it's not not restart the service. 
+  - Check if apache2 is running, if it's not restart the service. 
 
 - Execute '***systemctl enable apache2***' to enable the service so that you dont have to occassionally enable the EC2 machine manually, this is because the service occassionally stops. 
 
