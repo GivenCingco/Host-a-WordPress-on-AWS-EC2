@@ -28,7 +28,7 @@ A key pair, consisting of a public key and a private key, is a set of security c
 
   - Create a new key pair:
       - Name your keypair.
-      - Type and format must be RSA and .pem file format.
+      - Type and format must be RSA and .pem file.
 
 ## What is a security Group?
 
