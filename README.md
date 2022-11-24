@@ -16,7 +16,7 @@ You must have an existing AWS account. Every resource we use will be under free 
       - Type and format must be RSA and .pem file format.
 
 - In the Network settings section create security group inbound rules. Security groups are stateful, meaning any changes applied to an incoming rule will be automatically applied to the outgoing rule.
-  - SSH - Allow SSH traffic from your machine IP Address by selecting 'My IP' under source.
+  - SSH - Allow SSH traffic from from anywhere(0.0.0.0/0). 
   - HTTPS - Allow HTTPS traffic from anywhere(0.0.0.0/0).
   - HTTP - Allow HTTP traffic from anywhere (0.0.0.0/0).
 - Configure Storage to be 20 GiB.
@@ -78,8 +78,8 @@ Type the following commands in your terminal:
   - '***sudo systemctl status mariadb***' to check if the service is running. 
 
 # Setup root password of the database
-- To make the database secure type the command '***mysql_secure_installation***'
-  - It will ask you a few questions and you to give it answers/confirmations (press enter for no answers)
+- Secure your MariaDB installation by typing the command '***mysql_secure_installation***'. When prompted, answer Y.
+  - It will ask you a few questions and you have to give it answers/confirmations (press enter for no answers).
     -  Enter current password for root (enter for none):Enter 
     -  Switch to unix_socket authentication [Y/n]: Enter
     -  Change the root password[y/n]: Y
@@ -146,4 +146,7 @@ Looking at the screenshot above you can see that all the permissions are for the
 
 - Enter all the required fields and click the 'Install WordPress' button'.
 - You will be taken to a login page where you will enter your credentials. If the login is successful you should be taken to your WordPress admin panel.
+
+##NB
+I accidentally left SSH open to all IP addresses and had to delete the rule in my security group. It is not a good security practice to leave this open because anyone in the world could gain access to your EC2 Instance and all of its data.
 
