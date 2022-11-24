@@ -45,7 +45,7 @@ A security group acts as a virtual firewall for your EC2 instances to control in
 - Go to downloads where your key pair is stored.
 - Create a folder and call it 'SSH'. 
 - Copy the key pair and paste it inside the newly created SSH folder. 
-- Open your terminal type the following commands in the screenshot below to change into the directory where your key pair is stored. 
+- Open your terminal and execute the following commands in the screenshot below to change into the SSH directory where your key pair is stored. 
 
 ![Screenshot 2022-11-23 at 14 38 47](https://user-images.githubusercontent.com/50238769/203549430-657fab69-27ab-4592-bf41-c935793d8ea9.png)
 
@@ -151,10 +151,9 @@ Looking at the screenshot above you can see that all the permissions are for the
 
 ![Screenshot 2022-11-23 at 17 06 39](https://user-images.githubusercontent.com/50238769/203580254-3507273c-f07a-4773-91c0-ecffdcef6171.png)
 - From the screenshot above you can see the permissions have changed from root to www-data (data user). 
-- Remove the index.html page of the apache server, because when you browse the page (EC2 IP address) you will still see the apache default page which is still rendering  execute the command '***- rm  -rf index.html***'  
-- Refresh your browser and you will now see the WordPress setup page. Select your preferred language ans click the continue button. 
-- To connect to the database to establish connection and setup database credentials
-   - Execute the following commands:
+- Remove the apache server's index.html page, because when you browse the page (EC2 IP address), you will still see the apache default page, which is still rendering the command '***- rm  -rf index.html***'  
+- Refresh your browser to see the WordPress installation page. Choose your preferred language and then press the continue button. 
+- To establish a connection to the database and configure database credentials execute the following commands:
       - '***mysql u- root -p***'.
       - Enter password (Enter password that we previously set when setting up MariaDB)
       - '***create database wordpress;*** to create database. 
@@ -163,7 +162,7 @@ Looking at the screenshot above you can see that all the permissions are for the
 
 ![install-step3_v47](https://user-images.githubusercontent.com/50238769/203584444-bfc44cdc-6944-4d6b-b910-8d0c4fca2056.png)
 
-- Enter the correct databse details on the page like on the screenshot above. 
+-On the page shown in the screenshot above, enter the correct database details. 
 - Click on 'Run the installation' and the browser will take you to a page that looks like the screenshot below.  
 ![zxxIj](https://user-images.githubusercontent.com/50238769/203585997-ab7a8ff7-4666-49a2-976e-1aa9100c5b18.png)
 
