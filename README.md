@@ -38,7 +38,7 @@ A security group acts as a virtual firewall for your EC2 instances to control in
   - HTTPS - Allow HTTPS traffic from anywhere(0.0.0.0/0).
   - HTTP - Allow HTTP traffic from anywhere (0.0.0.0/0).
 - Configure Storage to be 20 GiB.
-- Continue through the setup keeping the defaults launch the instance.
+- Continue through the setup keeping the defaults and launch the instance.
 
 
 # Login to your EC2 via SSh
