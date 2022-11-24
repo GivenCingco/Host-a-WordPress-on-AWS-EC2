@@ -1,3 +1,4 @@
+## Everything was done on a Mac, so other steps may differ if you use a different operating system.
 # WordPress website hosted on an Amazon EC2 instance
 
 ## What is an Amazon EC2 instance?
