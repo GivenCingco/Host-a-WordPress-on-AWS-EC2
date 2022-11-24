@@ -26,7 +26,7 @@ A key pair, consisting of a public key and a private key, is a set of security c
 
 
   - Create a new key pair:
-      -Name your keypair.
+      - Name your keypair.
       - Type and format must be RSA and .pem file format.
 
 ## What is a security Group?
@@ -95,7 +95,7 @@ Execute the following commands:
 
 
 # Install MariaDB
--Execute the following commands to install MariaDB
+- Execute the following commands to install MariaDB
   -'***sudo apt install mariadb-server mariadb-client -y***'
   - '***sudo systemctl start mariadb***' to start the service. 
   - '***sudo systemctl status mariadb***' to check if the service is running. 
@@ -162,7 +162,7 @@ Looking at the screenshot above you can see that all the permissions are for the
 
 ![install-step3_v47](https://user-images.githubusercontent.com/50238769/203584444-bfc44cdc-6944-4d6b-b910-8d0c4fca2056.png)
 
--On the page shown in the screenshot above, enter the correct database details. 
+- On the page shown in the screenshot above, enter the correct database details. 
 - Click on 'Run the installation' and the browser will take you to a page that looks like the screenshot below.  
 ![zxxIj](https://user-images.githubusercontent.com/50238769/203585997-ab7a8ff7-4666-49a2-976e-1aa9100c5b18.png)
 
