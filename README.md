@@ -1,3 +1,7 @@
+![WordPress drawio](https://user-images.githubusercontent.com/50238769/204006061-449d0a85-f2ee-4f89-ac1c-2281d2ddac87.png)
+
+
+
 # How to host a WordPress website for free for a year on AWS using Amazon Linux EC2.
 ### Everything was done on a Mac, so other steps may differ if you use a different operating system.
 
