@@ -171,6 +171,43 @@ Looking at the screenshot above you can see that all the permissions are for the
 - Enter all the required fields and click the 'Install WordPress' button'.
 - You will be taken to a login page where you will enter your credentials. If the login is successful you should be taken to your WordPress admin panel.
 
-## NB
-I accidentally left SSH open to all IP addresses and had to delete the rule in my security group. It is not a good security practice to leave this open because anyone in the world could gain access to your EC2 Instance and all of its data.
+# Create Elastic Load Balancer Security group
+
+In the Network settings section create security group inbound rules. Security groups are stateful, meaning any changes applied to an incoming rule will be automatically applied to the outgoing rule.
+  - HTTPS - Allow HTTPS traffic from anywhere(0.0.0.0/0).
+  - HTTP - Allow HTTP traffic from anywhere (0.0.0.0/0).
+- Configure Storage to be 20 GiB.
+- Continue through the setup keeping the defaults and launch the instance.
+- Add these rules in the screenshot to your security group. 
+![Screenshot 2022-11-08 at 13 26 46](https://user-images.githubusercontent.com/50238769/200865784-0ad0c5cf-233a-4216-af78-bb6e02ca56ac.png)
+
+# Add Application Load Balancer
+- Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the health of its registered targets, and routes traffic only to the healthy targets. 
+- Steps to creating an Application Load Balancer follow this link - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-application-load-balancer.html.
+- Go to the Elastic Compute Cloud dashboard and look for the 'Load Balancing' tab, Select 'Load Balancer' and create your application load balancer.
+![Screenshot 2022-11-09 at 18 26 30](https://user-images.githubusercontent.com/50238769/200886068-e654580b-d5a9-4102-ac08-c315393aaabc.png)
+
+
+- Each target group routes requests to one or more registered targets, such as EC2 instances, using the protocol and port number that you specify. You can register a target with multiple target groups. You can configure health checks on a per target group basis. Health checks are performed on all targets registered to a target group that is specified in a listener rule for your load balancer.
+- Register your EC2 in the Target Group target group you created. 
+
+![Screenshot 2022-11-09 at 18 14 37](https://user-images.githubusercontent.com/50238769/200882546-92f8c531-4a62-4964-bbac-c3d6310d99ff.png)
+
+- Use the elastic load balancer security group for your Application Load balancer. 
+
+# Make your EC2 security groups more secure.
+- The security groups should not open traffic to 0.0.0.0 (internet). 
+- Only the ELB should allow traffic to 0.0.0.0, the EC2 security group should only allow traffic to and from the Load Balancer security group. 
+- Edit inbound rule and attach HTTPS and HTTP to ELB security group. 
+
+![Screenshot 2022-11-09 at 18 38 15](https://user-images.githubusercontent.com/50238769/200889128-0ac4646b-05a9-4cbc-a959-38e033dfd97a.png)
+
+
+# View Website
+- Copy your Application Load Balancer DNS Name and paste the link on your browser to view your website.
+
+<img width="1440" alt="Screenshot 2022-11-25 at 16 22 33" src="https://user-images.githubusercontent.com/50238769/204005321-f6bdeeb0-9338-4e91-8a1f-727553d8c081.png">
+
+
+Thanks for reading 👍! Please leave feedback and let me know if you enjoyed this post. 
 
