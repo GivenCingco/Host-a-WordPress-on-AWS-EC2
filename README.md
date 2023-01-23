@@ -100,26 +100,42 @@ In the previous module, you created security group rules to allow SSH and HTTP t
 - Scroll to the ***Connectivity & security*** tab in the display and choose the security group listed in ***VPC security groups***. The console will take you to the security group configured for your database.
 
 
-
-
 ![Screenshot 2023-01-20 at 13 55 58](https://user-images.githubusercontent.com/50238769/214079388-82cddd9f-5ea5-470d-9996-ed603323466a.png)
 
+- Select the '***Inbound rules'*** tab, then choose the ***'Edit inbound rules'*** button to change the rules for your security group.
 
 
+![Screenshot 2023-01-20 at 14 10 15](https://user-images.githubusercontent.com/50238769/214080818-4869bb3e-6558-4a26-91c6-ed812bd069a5.png)
+
+- The default security group has a rule that allows all inbound traffic from other instances in the default security group. However, since your WordPress EC2 instance is not in that security group, it will not have access to the Amazon RDS database. Change the ***Type*** property to ***MYSQL/Aurora***, which will update the ***Protocol*** and ***Port range*** to the proper values. Then, remove the current security group value configured for the ***Source***.
+- For ***Source***, enter wordpress. The console will show the available security groups that are configured. Choose the ***wordpress*** security group that you used for your EC2 instance.
+- After you choose the ***wordpress*** security group, the security group ID will be filled in. This rule will allow MySQL access to any EC2 instance with that security group configured.
+- When you’re finished, choose the Save rules button to save your changes.
+
+![Screenshot 2023-01-20 at 14 26 50](https://user-images.githubusercontent.com/50238769/214081558-70545cdb-7a34-4d1a-9500-23a3524b09d6.png)
+
+## SSH into your Instance
+
+### What is SSH and why it used?
+
+SSH (Secure Shell) is a network protocol used to securely connect to a remote computer or server. It encrypts all data sent over the network, including passwords, preventing them from being intercepted by malicious actors. SSH allows for remote access to the command line interface of a remote system, making it possible to perform tasks and manage files on a remote machine. It also supports tunneling, forwarding TCP ports and X11 connections. SSH is a widely used and powerful tool that provides secure and efficient remote access to computer systems and servers, allowing for easy and secure management of remote resources.
+
+- Now that your EC2 instance has access to your Amazon RDS database, you will use SSH to connect to your EC2 instance and run some configuration commands.
+- Go to the EC2 instances page in the console. You should see the EC2 instance you created for the WordPress installation. Select it and click on the connect button. 
+- Select the ‘SSH client’ tab and follow the instructions.
 
 
+![Screenshot 2023-01-20 at 15 44 22](https://user-images.githubusercontent.com/50238769/214083293-e3eba386-ac6a-4181-99a1-d62d7cb6d106.png)
+
+- Previously, you downloaded the .pem file for the key pair of your instance. Locate that file now. It will likely be in a Downloads folder on your desktop.Open a terminal window. If you are on a Mac, you can use the default Terminal program that is installed, or you can use your own terminal. 
+- Copy and execute the commands below
+- In your terminal, run the following commands to use SSH to connect to your instance. Replace the ***“<path/to/pem/file>”*** with the path to your file, e.g., ***“~/Downloads/wordpress.pem”***, and the ***“<publicIpAddress>”*** with the public IP address for your EC2 instance. 
 
 
-
-
-
-
-
-
-
-
-
-
+``` 
+  chmod 400 wordpress.pem
+  ssh -i "wordpress.pem" ec2-user@ec2-204-236-240-173.compute-1.amazonaws.com
+```
 
 
 
