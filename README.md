@@ -136,13 +136,40 @@ SSH (Secure Shell) is a network protocol used to securely connect to a remote co
   chmod 400 wordpress.pem
   ssh -i "wordpress.pem" ec2-user@ec2-204-236-240-173.compute-1.amazonaws.com
 ```
+<img width="1251" alt="Screenshot 2023-01-20 at 16 35 32" src="https://user-images.githubusercontent.com/50238769/214085401-7bfe7a0c-d785-4527-9294-0286247855e4.png">
+  
+## Create a database user
 
+- You should have an active SSH session to your EC2 instance in the terminal. Now, you will connect to your MySQL database. First, run the following command in your terminal to install a MySQL client to interact with the database. 
 
+<img width="1275" alt="Screenshot 2023-01-20 at 17 36 32" src="https://user-images.githubusercontent.com/50238769/214085824-f4563976-5b63-46da-9cfa-343d2dde306e.png">
 
+- Go to the [Amazon RDS databases page](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#databases:) in the AWS console. You should see the wordpress database you created for the WordPress installation. Select it to find the hostname for your Amazon RDS database.
 
+![Screenshot 2023-01-20 at 17 38 38](https://user-images.githubusercontent.com/50238769/214086148-618bad0b-a2ee-4710-a047-80d51e327259.png)
 
+- In the details of your Amazon RDS database, the hostname will be shown as the ***Endpoint*** in the ***Connectivity & security*** section.
+  
+![Screenshot 2023-01-20 at 17 39 13](https://user-images.githubusercontent.com/50238769/214086282-c5402df8-7ce6-4d2a-a7b0-17216b555fa4.png)
 
+- In your terminal, enter the following command to set an environment variable for your MySQL host. Be sure to replace “<your-endpoint>” with the hostname of your RDS instance. 
 
+```
+  export MYSQL_HOST=<your-endpoit>
+```  
+
+<img width="1271" alt="Screenshot 2023-01-20 at 17 41 48" src="https://user-images.githubusercontent.com/50238769/214087363-3d7ebe28-1c0f-4471-b46d-ff61a2a17d9a.png">
+  
+- Finally, create a database user for your WordPress application and give the user permission to access the wordpress database. Run the following commands in your terminal:  
+
+```
+CREATE USER 'wordpress' IDENTIFIED BY 'wordpress-pass';
+GRANT ALL PRIVILEGES ON wordpress.* TO wordpress;
+FLUSH PRIVILEGES;
+Exit
+```
+As a best practice, you should use a better password than wordpress-pass to secure your database.
+Write down both the username and password that you configure, as they will be needed in the next module when setting up your WordPress installation.  
 
 
 
