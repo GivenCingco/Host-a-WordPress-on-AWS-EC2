@@ -54,29 +54,37 @@ An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC
 
 ![Screenshot 2023-01-20 at 09 57 30](https://user-images.githubusercontent.com/50238769/214065933-c70e2e19-1fa0-4447-ae30-6e7ff035f877.png)
 
+## Create Key Pair
 
-
-
-
-
-
-
-
-
-## What is a key pair?
+### What is a key pair?
 A key pair, consisting of a public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an Amazon EC2 instance. 
+- Give your key pair a name. Then choose the Create key pair button, which will download the .pem file to your machine. You will use this file in the next module.
 
+![Screenshot 2023-01-20 at 10 06 35](https://user-images.githubusercontent.com/50238769/214070582-828a4b74-a05e-45dc-897f-b5cf511c6be0.png)
 
-![Screenshot 2022-11-08 at 13 30 53](https://user-images.githubusercontent.com/50238769/203737962-e3a827e3-46c1-4c86-8ca3-4474c0bcfa74.png)
+## Configuring a security group and launching your instance. 
 
-
-  - Create a new key pair:
-      - Name your keypair.
-      - Type and format must be RSA and .pem file.
-
-## What is a security Group?
-
+### What is a security Group?
 A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance. 
+
+You need to configure a security group before launching your instance. Security groups are networking rules that describe the kind of network traffic that is allowed to your EC2 instance. You want to allow two kinds of traffic to your instance:
+- SSH traffic from your current IP address so you can use the SSH protocol to log in to your EC2 instance and configure WordPress. 
+- HTTP traffic from all IP addresses so that users can view your WordPress site.
+
+To configure this, select Allow SSH traffic from My IP and select Allow HTTP traffic from the internet.
+
+![Screenshot 2023-01-20 at 10 25 42](https://user-images.githubusercontent.com/50238769/214075441-f8139b56-7dda-4c14-bcb2-bf176d31edac.png)
+
+![Screenshot 2023-01-20 at 12 10 01](https://user-images.githubusercontent.com/50238769/214075525-bf5d66d0-fa25-4912-9103-58be064bb630.png)
+
+
+
+
+
+
+
+
+
 
 - In the Network settings section create security group inbound rules. Security groups are stateful, meaning any changes applied to an incoming rule will be automatically applied to the outgoing rule.
   - SSH - Allow SSH traffic from from anywhere(0.0.0.0/0). 
