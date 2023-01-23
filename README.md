@@ -77,6 +77,32 @@ To configure this, select Allow SSH traffic from My IP and select Allow HTTP tra
 
 ![Screenshot 2023-01-20 at 12 10 01](https://user-images.githubusercontent.com/50238769/214075525-bf5d66d0-fa25-4912-9103-58be064bb630.png)
 
+## Launch EC2
+- Choose the Launch instance button to create your EC2 instance.
+
+
+# Module 3: Configuring Your Amazon RDS Database
+
+## Database security methods
+- It is critical to secure your database from unauthorised access, and there are a number of strategies you can use to add security to your database. You will learn two of them in this module. They are:
+- Network security: Limiting access to your database instance by rejecting traffic that’s not from authorised IP addresses
+- Password authentication and authorisation: Limiting access to your database by requiring a username and password to access.
+
+## Allow your EC2 instance to access your Amazon RDS database
+
+First, you will modify your Amazon RDS database to allow network access from your EC2 instance.
+In the previous module, you created security group rules to allow SSH and HTTP traffic to your WordPress EC2 instance. The same principle applies here. This time, you want to allow certain traffic from your EC2 instance into your Amazon RDS database.
+- To configure this, go to the Amazon RDS databases page in the AWS console. Choose the MySQL database you created in the earlier module in this guide.
+
+![Screenshot 2023-01-20 at 13 51 55](https://user-images.githubusercontent.com/50238769/214079034-3ff22088-0998-4ada-bdda-f0865ef175d9.png)
+
+
+- Scroll to the ***Connectivity & security*** tab in the display and choose the security group listed in ***VPC security groups***. The console will take you to the security group configured for your database.
+
+
+
+
+![Screenshot 2023-01-20 at 13 55 58](https://user-images.githubusercontent.com/50238769/214079388-82cddd9f-5ea5-470d-9996-ed603323466a.png)
 
 
 
@@ -86,12 +112,25 @@ To configure this, select Allow SSH traffic from My IP and select Allow HTTP tra
 
 
 
-- In the Network settings section create security group inbound rules. Security groups are stateful, meaning any changes applied to an incoming rule will be automatically applied to the outgoing rule.
-  - SSH - Allow SSH traffic from from anywhere(0.0.0.0/0). 
-  - HTTPS - Allow HTTPS traffic from anywhere(0.0.0.0/0).
-  - HTTP - Allow HTTP traffic from anywhere (0.0.0.0/0).
-- Configure Storage to be 20 GiB.
-- Continue through the setup keeping the defaults and launch the instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Login to your EC2 via SSh
