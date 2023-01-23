@@ -39,42 +39,29 @@ Set the Initial database name to wordpress. This will ensure Amazon RDS creates 
 
 ![Screenshot 2023-01-17 at 09 27 59](https://user-images.githubusercontent.com/50238769/214061380-ee384f4a-dbd1-45fc-ba2b-4f172d7fd68e.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Module 2 : Creating an Elastic Compute Cloud(EC2) Instance
 
 ## What is an Amazon EC2 instance?
 An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC2) for running applications on the Amazon Web Services (AWS) infrastructure. Amazon provides various types of instances with different configurations of CPU, memory, storage and networking resources to suit user needs. Each type is available in various sizes to address specific workload requirements.
 
-You must have an existing AWS account. Every resource we use will be under free tier. ***Free tier: In your first year includes 750 hours of t2.micro (or t3.micro in the Regions in which t2.micro is unavailable) instance usage on free tier AMIs per month, 30 GiB of EBS storage, 2 million IOs, 1 GB of snapshots, and 100 GB of bandwidth to the internet***.
 - Sign into the AWS management console and ensure that you are in the N.Virginia(us-east-1) region.
-- Go to the EC2 [dashboard](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstances:) and click the orange 'Launch Instance' button.
+- To create your EC2 instance, go to Amazon EC2 in the [AWS Management Console](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:). Choose the Launch instance button to open the instance creation wizard.
 
-![Screenshot 2022-11-22 at 15 22 43](https://user-images.githubusercontent.com/50238769/203331652-41a764ab-3ebf-45a6-a9e4-2dbd1997f9aa.png)
+![Screenshot 2023-01-20 at 09 53 00](https://user-images.githubusercontent.com/50238769/214065241-867579e4-10dc-4287-a41b-d746debad4cc.png)
+
+- On the first page, enter wordpress-server as your instance name.
+- Select the Amazon Linux 2 AMI (HVM) in the AMI selection view. Amazon EC2 allows you to run 750 hours per month of a t2.micro instance under the AWS [Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all). Select this option for this guide so that you won’t incur any costs on your bill.
+
+![Screenshot 2023-01-20 at 09 57 30](https://user-images.githubusercontent.com/50238769/214065933-c70e2e19-1fa0-4447-ae30-6e7ff035f877.png)
 
 
-- Select the Ubuntu SERVER 22.04 lts (hvm), ssd Volume Type AMI.
 
 
 
-![Screenshot 2022-11-22 at 15 37 44](https://user-images.githubusercontent.com/50238769/203333206-f9a5e284-dcd5-4d32-bb73-904f3b612aa4.png)
-  - Give the server a name. 
-  - Select the t2.micro istance type (free tier eligible).
+
+
+
+
 
 ## What is a key pair?
 A key pair, consisting of a public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an Amazon EC2 instance. 
