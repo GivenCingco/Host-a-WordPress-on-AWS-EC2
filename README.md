@@ -191,31 +191,83 @@ sudo service httpd start
   
 - Go to the [EC2 Instances page](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:) and find your instance. Go to your instance destails tab and copy the ***Public IPv4 DNS***
 
+# Download and configure WordPress
 
-  
+- First, download and uncompress the software by running the following commands in your terminal:
 
+```
+wget https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+```
+  
+- If you run ls to view the contents of your directory, you will see a tar file and a directory called wordpress with the uncompressed contents.
 
+```
+ls
+latest.tar.gz  wordpress
+```
+- Change the directory to the wordpress directory and create a copy of the default config file using the following commands:
 
+```
+cd wordpress
+cp wp-config-sample.php wp-config.php
+```
+- Then, open the ***wp-config.php*** file using the nano editor by running the following command.
+  
+```
+nano wp-config.php
+```  
+- You need to edit two areas of configuration. First, edit the database configuration by changing the following lines:  
+  
+```  
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'database_name_here' );
 
+/** MySQL database username */
+define( 'DB_USER', 'username_here' );
 
+/** MySQL database password */
+define( 'DB_PASSWORD', 'password_here' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );  
+```  
   
   
+The values should be:
+- ***DB_NAME***: “wordpress”
+- ***DB_USER***: The name of the user you created in the database in the previous module
+- ***DB_PASSWORD***: The password for the user you created in the previous module
+- ***DB_HOST***: The hostname of the database that you found in the previous module  
   
   
+The second configuration section you need to configure is the Authentication Unique Keys and Salts. It looks as follows in the configuration file:  
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+```  
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */
+define( 'AUTH_KEY',         'put your unique phrase here' );
+define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
+define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
+define( 'NONCE_KEY',        'put your unique phrase here' );
+define( 'AUTH_SALT',        'put your unique phrase here' );
+define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
+define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
+define( 'NONCE_SALT',       'put your unique phrase here' );  
+```  
+Go to this ***[link](https://api.wordpress.org/secret-key/1.1/salt/)*** to generate values for this configuration section. You can replace the entire content in that section with the content from the link.
+
+You can save and exit from nano by entering ***CTRL+O*** followed by ***CTRL+X***.
+
+With the configuration updated, you are almost ready to deploy your WordPress site. In the next step, you will make your WordPress site live.  
   
   
   
