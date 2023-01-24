@@ -1,3 +1,4 @@
+![Static website](https://user-images.githubusercontent.com/50238769/214305668-ee3a4932-9f04-472c-96f5-dbf2ad7ddfb8.jpg)
 
 
 
