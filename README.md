@@ -270,11 +270,33 @@ You can save and exit from nano by entering ***CTRL+O*** followed by ***CTRL+X**
 With the configuration updated, you are almost ready to deploy your WordPress site. In the next step, you will make your WordPress site live.  
   
   
+# Deploying WordPress
+
+In this step, you will make your Apache web server handle requests for WordPress.
+
+First, install the application dependencies you need for WordPress. In your terminal, run the following command.  
+
   
+```  
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2  
+```  
+Second, change to the proper directory by running the following command:  
   
+```  
+cd /home/ec2-user  
+```  
+Then, copy your WordPress application files into the ***/var/www/html*** directory used by Apache.  
   
+```  
+sudo cp -r wordpress/* /var/www/html/  
+```  
+Finally, restart the Apache web server to pick up the changes.  
   
-  
+```  
+sudo service httpd restart  
+```
+That’s it. You have a live, publicly accessible WordPress installation using a fully managed MySQL database on Amazon RDS.
+Copy your Public DNS name to your browser to continue with the WordPress installation. 
   
   
   
