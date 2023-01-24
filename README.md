@@ -3,6 +3,8 @@
 
 
 # AWS Amazon Linux EC2: Hosting WordPress website free for one year
+
+### Some code was re-used from this ***[AWS walk-through](https://aws.amazon.com/getting-started/hands-on/deploy-wordpress-with-amazon-rds/)***
 ### NB: Everything was done on a Mac, so other steps may differ if you use a different operating system.
 
 ## What is WordPress?
