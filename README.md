@@ -171,138 +171,61 @@ Exit
 As a best practice, you should use a better password than wordpress-pass to secure your database.
 Write down both the username and password that you configure, as they will be needed in the next module when setting up your WordPress installation.  
 
-
-
-
-
-
-# Login to your EC2 via SSh
-- Go to downloads where your key pair is stored.
-- Create a folder and call it 'SSH'. 
-- Copy the key pair and paste it inside the newly created SSH folder. 
-- Open your terminal and execute the following commands in the screenshot below to change into the SSH directory where your key pair is stored. 
-
-![Screenshot 2022-11-23 at 14 38 47](https://user-images.githubusercontent.com/50238769/203549430-657fab69-27ab-4592-bf41-c935793d8ea9.png)
-
-
-- Select the your EC2, under the details tab copy your Public IPv4 address.
-
-![Screenshot 2022-11-23 at 14 44 38](https://user-images.githubusercontent.com/50238769/203550377-731fd2c9-439a-4fc3-ab78-c141d479eec2.png)
-
-## SSH into EC2 instance via terminal
-- Go back to your terminal to login to your EC2 via SSH
-- Execute these commands below:
-  - '***chmod 400[Key pair name]***' and press enter. 
-  - '***ssh ubuntu@[Public IPv4 address] -i [Key pair name]***' and press enter. Type yes when prompted if you want to continue connecting. 
-  - '***sudo su -***' to have root priviledges. 
-
-## Update and upgrade LAMP packages. 
-Execute the following commands:
-  - '***sudo apt update -y*** and press enter. 
-  - '***sudo apt upgrade -*** and press enter. Type yes when prompted if your want to continue.
-  - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape. Do this each time you encounter the error.
-
-
-  <img width="1440" alt="Screenshot 2022-11-23 at 15 43 53 (2)" src="https://user-images.githubusercontent.com/50238769/203562140-1f42e80b-461f-4107-94d3-df72dfe329e5.png">
-  
-  # Setup the LAMP server  (this will enable us to run PHP on the server)
-  
-  ## Install apache2
-  - Execute '***apt install apache2 -y***'
-  - If the pink error message appears, simply press okay and escape. Because of the updates we just installed, that error wants us to reboot, but we don't want to reboot, so we pressed escape.
-  ## Check status if Apache2 is running
-  - Execute '***systemctl status apache2***'. 
+# Deploy WordPress with Amazon RDS
   
   
-  ![Screenshot 2022-11-23 at 15 49 40](https://user-images.githubusercontent.com/50238769/203563438-cf5abe67-b83d-4929-88d8-9257567e0bd1.png)
+## Installing the Apache Web Server
+
+- To install Apache on your EC2 instance, run the following command in your terminal:
+
+```
+sudo yum install -y httpd
+```
+- To start the Apache web server, run the following command in your terminal:
+  
+```
+sudo service httpd start
+```
+
+- You can see that your Apache web server is working and that your security groups are configured correctly by visiting the public DNS of your EC2 instance in your browser.
+  
+- Go to the [EC2 Instances page](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:) and find your instance. Go to your instance destails tab and copy the ***Public IPv4 DNS***
+
+
+  
+
+
+
+
+
   
   
-  - If apache2 is not running execute '***systemctl start apache2***'
-  - Copy your EC2 Public IPv4 address and paste it on your browser, Ubuntu apache2 default page should appear.
   
-  ![Screenshot 2022-11-23 at 15 56 51](https://user-images.githubusercontent.com/50238769/203565041-eb98e081-bd5a-4ed3-815f-2168fcc4a324.png)
   
-  ## Debugging If the page doesn't appear
-  - Check your security groups( HTTP/ HTTPS inbound rules). 
-  - Check if apache2 is running, if it's not restart the service. 
-
-- Execute '***systemctl enable apache2***' to enable the service so that you dont have to occassionally enable the EC2 machine manually, this is because the service occassionally stops. 
-
-
-# Install MariaDB
-- Execute the following commands to install MariaDB
-  -'***sudo apt install mariadb-server mariadb-client -y***'
-  - '***sudo systemctl start mariadb***' to start the service. 
-  - '***sudo systemctl status mariadb***' to check if the service is running. 
-
-# Setup root password of the database
-- Secure your MariaDB installation by executing the command '***mysql_secure_installation***'. When prompted, answer Y.
-  - It will ask you a few questions and you have to give it answers/confirmations (press enter for no answers).
-    -  Enter current password for root (enter for none):Enter 
-    -  Switch to unix_socket authentication [Y/n]: Enter
-    -  Change the root password[y/n]: Y
-    -  New password: [provide your password]
-    -  Re-enter password: [provide the same password]
-    -  Remove anonymous users [Y/n]: Y (we will create our own)
-    -  Disallow root login remotely[Y/n]: Y
-    -  Remove test database and access to it [y/n]: Y
-    -  Reload privileges table now [y/n]: Y
-    
-![Screenshot 2022-11-23 at 16 14 19](https://user-images.githubusercontent.com/50238769/203568956-4451d65b-6473-456f-b1d6-b85150073943.png)
-
-- To ensure that all the configurations are saved type the command '***systemctl restart mariadb***'
-
-# Install PHP on the server
-
-Execute these commands
-- '***apt install php php-mysql php-gd php-cli php-common -y***' to install php
-
-Download WordPress from [https://wordpress.org/download/](https://wordpress.org/download/)
-
-- Go to the button ‘download Wordpress’ right click on it to copy the link address
-
-  ![Screenshot 2022-11-23 at 16 35 24](https://user-images.githubusercontent.com/50238769/203573668-da9bb24c-3aca-4205-b0fa-bdb6b3b33f08.png)
-- Execute these commands '***apt install wget unzip -y***' - we will use these packages to download PHP from the link address we copied, and unzip the zipped file we will download.
-- Download WordPress from the link - Type the command '***wget https://wordpress.org/latest.zip**'
-- Execute '***ls***' to list file in the directory
-
-![Screenshot 2022-11-23 at 16 42 16](https://user-images.githubusercontent.com/50238769/203575010-2dde2c23-57c0-4b24-a4aa-b16936acb61a.png)
-
-- Execute command '***unzip latest.zip***' to unzip the WordPress zip file we downloaded. 
-- Execute command '***ls***' WordPress folder should appear. 
-- To list all the content execute the command '***cd wordpress/***'
-- Execute the following commands to copy all the content to the ***/var/www/html/*** directory
-  - ***cd wordpress/***
-  - ***cd ..*** 
-  - ***cp -r wordpress/* /var/www/html***
-  - ***cd /var/www/html***
-  - ***ls -l***
   
-![Screenshot 2022-11-23 at 17 00 53](https://user-images.githubusercontent.com/50238769/203579033-9a1df57b-d85c-43c9-a1ec-7a4d979b6455.png)
-
-Looking at the screenshot above you can see that all the permissions are for the root user. 
-- Apache server is run by data user, so we have to change the  ownership from root to data user so that we can access the pages. 
-- To change the permissions execute the command '*** chown www-data:www-data -R /var/www/html/***'
-
-![Screenshot 2022-11-23 at 17 06 39](https://user-images.githubusercontent.com/50238769/203580254-3507273c-f07a-4773-91c0-ecffdcef6171.png)
-- From the screenshot above you can see the permissions have changed from root to www-data (data user). 
-- Remove the apache server's index.html page, because when you browse the page (EC2 IP address), you will still see the apache default page, which is still rendering the command '***- rm  -rf index.html***'  
-- Refresh your browser to see the WordPress installation page. Choose your preferred language and then press the continue button. 
-- To establish a connection to the database and configure database credentials execute the following commands:
-      - '***mysql u- root -p***'.
-      - Enter password (Enter password that we previously set when setting up MariaDB)
-      - '***create database wordpress;*** to create database. 
-      - To create user type command '***"wpadmin" identified by "wpadminpass";***
-      - To grant access for the user we just created to all the objects of the WordPress database we created, type the command '***grant all privileges on wordpress.* to "wpadmin"***';
-
-![install-step3_v47](https://user-images.githubusercontent.com/50238769/203584444-bfc44cdc-6944-4d6b-b910-8d0c4fca2056.png)
-
-- On the page shown in the screenshot above, enter the correct database details. 
-- Click on 'Run the installation' and the browser will take you to a page that looks like the screenshot below.  
-![zxxIj](https://user-images.githubusercontent.com/50238769/203585997-ab7a8ff7-4666-49a2-976e-1aa9100c5b18.png)
-
-- Enter all the required fields and click the 'Install WordPress' button'.
-- You will be taken to a login page where you will enter your credentials. If the login is successful you should be taken to your WordPress admin panel.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 # Create Elastic Load Balancer Security group
 
