@@ -339,5 +339,5 @@ In the Network settings section create security group inbound rules. Security gr
 <img width="1440" alt="Screenshot 2022-11-25 at 16 22 33" src="https://user-images.githubusercontent.com/50238769/204005321-f6bdeeb0-9338-4e91-8a1f-727553d8c081.png">
 
 
-Thanks for reading 👍! Please leave feedback and let me know if you enjoyed this post. 
+Thanks for reading 👍! Kindly provide feedback on this post and let me know if it was enjoyable and if all the information provided was functional.. 
 
