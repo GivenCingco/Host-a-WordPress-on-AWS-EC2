@@ -45,12 +45,12 @@ Set the Initial database name to wordpress. This will ensure Amazon RDS creates 
 An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC2) for running applications on the Amazon Web Services (AWS) infrastructure. Amazon provides various types of instances with different configurations of CPU, memory, storage and networking resources to suit user needs. Each type is available in various sizes to address specific workload requirements.
 
 - Sign into the AWS management console and ensure that you are in the N.Virginia(us-east-1) region.
-- To create your EC2 instance, go to Amazon EC2 in the [AWS Management Console](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:). Choose the Launch instance button to open the instance creation wizard.
+- To create your EC2 instance, go to Amazon EC2 in the ***[AWS Management Console](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:)***. Choose the ***Launch instance*** button to open the instance creation wizard.
 
 ![Screenshot 2023-01-20 at 09 53 00](https://user-images.githubusercontent.com/50238769/214065241-867579e4-10dc-4287-a41b-d746debad4cc.png)
 
-- On the first page, enter wordpress-server as your instance name.
-- Select the Amazon Linux 2 AMI (HVM) in the AMI selection view. Amazon EC2 allows you to run 750 hours per month of a t2.micro instance under the AWS [Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all). Select this option for this guide so that you won’t incur any costs on your bill.
+- On the first page, enter **wordpress-server** as your instance name.
+- Select the ***Amazon Linux 2 AMI (HVM)*** in the AMI selection view. Amazon EC2 allows you to run 750 hours per month of a t2.micro instance under the  ***[AWS Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)***. Select this option for this guide so that you won’t incur any costs on your bill.
 
 ![Screenshot 2023-01-20 at 09 57 30](https://user-images.githubusercontent.com/50238769/214065933-c70e2e19-1fa0-4447-ae30-6e7ff035f877.png)
 
@@ -58,7 +58,7 @@ An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC
 
 ### What is a key pair?
 A key pair, consisting of a public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an Amazon EC2 instance. 
-- Give your key pair a name. Then choose the Create key pair button, which will download the .pem file to your machine. You will use this file in the next module.
+- Give your key pair a name. Then choose the ***Create key pair*** button, which will download the ***.pem file*** to your machine. You will use this file in the next module.
 
 ![Screenshot 2023-01-20 at 10 06 35](https://user-images.githubusercontent.com/50238769/214070582-828a4b74-a05e-45dc-897f-b5cf511c6be0.png)
 
@@ -71,22 +71,22 @@ You need to configure a security group before launching your instance. Security 
 - SSH traffic from your current IP address so you can use the SSH protocol to log in to your EC2 instance and configure WordPress. 
 - HTTP traffic from all IP addresses so that users can view your WordPress site.
 
-To configure this, select Allow SSH traffic from My IP and select Allow HTTP traffic from the internet.
+To configure this, select ***Allow SSH traffic from My IP*** and select ***Allow HTTP traffic from the internet***.
 
 ![Screenshot 2023-01-20 at 10 25 42](https://user-images.githubusercontent.com/50238769/214075441-f8139b56-7dda-4c14-bcb2-bf176d31edac.png)
 
 ![Screenshot 2023-01-20 at 12 10 01](https://user-images.githubusercontent.com/50238769/214075525-bf5d66d0-fa25-4912-9103-58be064bb630.png)
 
 ## Launch EC2
-- Choose the Launch instance button to create your EC2 instance.
+- Choose the ***Launch instance*** button to create your EC2 instance.
 
 
 # Module 3: Configuring Your Amazon RDS Database
 
 ## Database security methods
 - It is critical to secure your database from unauthorised access, and there are a number of strategies you can use to add security to your database. You will learn two of them in this module. They are:
-- Network security: Limiting access to your database instance by rejecting traffic that’s not from authorised IP addresses
-- Password authentication and authorisation: Limiting access to your database by requiring a username and password to access.
+- ***Network security***: Limiting access to your database instance by rejecting traffic that’s not from authorised IP addresses
+- ***Password authentication and authorisation***: Limiting access to your database by requiring a username and password to access.
 
 ## Allow your EC2 instance to access your Amazon RDS database
 
@@ -121,13 +121,13 @@ In the previous module, you created security group rules to allow SSH and HTTP t
 SSH (Secure Shell) is a network protocol used to securely connect to a remote computer or server. It encrypts all data sent over the network, including passwords, preventing them from being intercepted by malicious actors. SSH allows for remote access to the command line interface of a remote system, making it possible to perform tasks and manage files on a remote machine. It also supports tunneling, forwarding TCP ports and X11 connections. SSH is a widely used and powerful tool that provides secure and efficient remote access to computer systems and servers, allowing for easy and secure management of remote resources.
 
 - Now that your EC2 instance has access to your Amazon RDS database, you will use SSH to connect to your EC2 instance and run some configuration commands.
-- Go to the EC2 instances page in the console. You should see the EC2 instance you created for the WordPress installation. Select it and click on the connect button. 
-- Select the ‘SSH client’ tab and follow the instructions.
+- Go to the ***[EC2 instances page](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:)*** in the console. You should see the EC2 instance you created for the WordPress installation. Select it and click on the connect button. 
+- Select the ***‘SSH client’*** tab and follow the instructions.
 
 
 ![Screenshot 2023-01-20 at 15 44 22](https://user-images.githubusercontent.com/50238769/214083293-e3eba386-ac6a-4181-99a1-d62d7cb6d106.png)
 
-- Previously, you downloaded the .pem file for the key pair of your instance. Locate that file now. It will likely be in a Downloads folder on your desktop.Open a terminal window. If you are on a Mac, you can use the default Terminal program that is installed, or you can use your own terminal. 
+- Previously, you downloaded the ***.pem file*** for the key pair of your instance. Locate that file now. It will likely be in a Downloads folder on your desktop.Open a terminal window. If you are on a Mac, you can use the default Terminal program that is installed, or you can use your own terminal. 
 - Copy and execute the commands below
 - In your terminal, run the following commands to use SSH to connect to your instance. Replace the ***“<path/to/pem/file>”*** with the path to your file, e.g., ***“~/Downloads/wordpress.pem”***, and the ***“<publicIpAddress>”*** with the public IP address for your EC2 instance. 
 
@@ -144,7 +144,7 @@ SSH (Secure Shell) is a network protocol used to securely connect to a remote co
 
 <img width="1275" alt="Screenshot 2023-01-20 at 17 36 32" src="https://user-images.githubusercontent.com/50238769/214085824-f4563976-5b63-46da-9cfa-343d2dde306e.png">
 
-- Go to the [Amazon RDS databases page](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#databases:) in the AWS console. You should see the wordpress database you created for the WordPress installation. Select it to find the hostname for your Amazon RDS database.
+- Go to the ***[Amazon RDS databases page](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#databases:)*** in the AWS console. You should see the wordpress database you created for the WordPress installation. Select it to find the hostname for your Amazon RDS database.
 
 ![Screenshot 2023-01-20 at 17 38 38](https://user-images.githubusercontent.com/50238769/214086148-618bad0b-a2ee-4710-a047-80d51e327259.png)
 
