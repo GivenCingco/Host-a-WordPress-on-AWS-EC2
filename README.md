@@ -5,34 +5,52 @@
 
 # AWS Amazon Linux EC2: Hosting WordPress website free for one year
 
-### Some code was re-used from this ***[AWS walk-through](https://aws.amazon.com/getting-started/hands-on/deploy-wordpress-with-amazon-rds/)***
-### NB: Everything was done on a Mac, so other steps may differ if you use a different operating system.
+> Some code was re-used from this ***[AWS walk-through](https://aws.amazon.com/getting-started/hands-on/deploy-wordpress-with-amazon-rds/)***
+
+
+> NB: Everything was done on a Mac, so other steps may differ if you use a different operating system.
 
 ## What is WordPress?
 WordPress is widely chosen as a CMS because of its user-friendliness, adaptability and an extensive community. Its extensive collection of plugins and themes, search engine optimization-friendly characteristics and the ability to handle large traffic make it suitable for various types of websites. Being open-source, free to use and able to be self-hosted makes it a cost-efficient solution. It can be used to create a wide range of websites, including blogs, e-commerce sites, and portfolios, and can be easily customized using a variety of themes and plugins.
+
+
 
 
 ## Module 1 : Relational Database
 
 Amazon RDS for MySQL is a cost-efficient and secure solution for hosting a MySQL database for a WordPress website. It provides scalability, high availability, security, and ease of management. The pay-as-you-go pricing model allows for cost-efficiency and eliminates the need for upfront costs or ongoing maintenance for a physical infrastructure. Additionally, it is compatible with WordPress, which uses MySQL as its database management system and it integrates seamlessly with other AWS services such as Elastic Beanstalk, CloudFront, and Lambda for easy deployment, caching and event-driven processing.
 
+
 - Access the AWS Management Console and navigate to the ***[RDS](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#)*** section.
 - Choose the ***Create database*** button to get started.
 
 
+
 ![Screenshot 2023-01-17 at 08 34 49](https://user-images.githubusercontent.com/50238769/214060549-3b289fe6-ddd1-4b54-9b8a-a9b47cc2b5bf.png)
+
+
 
 - WordPress uses MySQL, so select ***Standard create*** for the database creation method and choose the ***MySQL*** engine. 
 
+
+
 ![Screenshot 2023-01-17 at 08 39 03](https://user-images.githubusercontent.com/50238769/214060671-73c5051a-dc72-4a56-9362-4921938ae8ea.png)
 
+
+
 - Make sure to choose the ***"Free tier"*** option under ***"Templates"*** to avoid any charges. If ***"Production"*** or ***"Dev/Test"*** were selected, the options for availability and durability would not be disabled.
+
+
 
 ![Screenshot 2023-01-17 at 08 42 19](https://user-images.githubusercontent.com/50238769/214060903-5cfa564d-622f-4108-b21e-36a5655f1209.png)
 
 - In the ***Settings*** section, enter wordpress as your ***DB instance identifier***. Then specify the master username and password for your database. Choose a strong, secure password to help protect your database. Store the username and password for safekeeping as you will need it in a later module.
 
+
+
 ![Screenshot 2023-01-17 at 09 13 40](https://user-images.githubusercontent.com/50238769/214061067-624a1975-dea3-41a9-853f-51a42c56ae5f.png)
+
+
 
 - The default settings for instance configuration, storage, connectivity, and database authentication will suffice for the following sections in this guide.
 - Finally, Amazon RDS provides a number of additional configuration options to customise your deployment. You need to make one change in this area. Select the Additional configuration line to expand the options.
@@ -40,7 +58,11 @@ Amazon RDS for MySQL is a cost-efficient and secure solution for hosting a MySQL
 Set the Initial database name to wordpress. This will ensure Amazon RDS creates the database in your MySQL instance upon initialisation. You will use this database name when connecting to your database. 
 - To create your database, click on the orange ***'Create database'*** button.
 
+
+
 ![Screenshot 2023-01-17 at 09 27 59](https://user-images.githubusercontent.com/50238769/214061380-ee384f4a-dbd1-45fc-ba2b-4f172d7fd68e.png)
+
+
 
 # Module 2 : Creating an Elastic Compute Cloud(EC2) Instance
 
@@ -50,12 +72,20 @@ An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC
 - Sign into the AWS management console and ensure that you are in the N.Virginia(us-east-1) region.
 - To create your EC2 instance, go to Amazon EC2 in the ***[AWS Management Console](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Home:)***. Choose the ***Launch instance*** button to open the instance creation wizard.
 
+
+
 ![Screenshot 2023-01-20 at 09 53 00](https://user-images.githubusercontent.com/50238769/214065241-867579e4-10dc-4287-a41b-d746debad4cc.png)
+
+
 
 - On the first page, enter **wordpress-server** as your instance name.
 - Select the ***Amazon Linux 2 AMI (HVM)*** in the AMI selection view. Amazon EC2 allows you to run 750 hours per month of a t2.micro instance under the  ***[AWS Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)***. Select this option for this guide so that you won’t incur any costs on your bill.
 
+
+
 ![Screenshot 2023-01-20 at 09 57 30](https://user-images.githubusercontent.com/50238769/214065933-c70e2e19-1fa0-4447-ae30-6e7ff035f877.png)
+
+
 
 ## Create Key Pair
 
