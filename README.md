@@ -103,6 +103,8 @@ An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC
 A key pair, consisting of a public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an Amazon EC2 instance. 
 - Give your key pair a name. Then choose the ***Create key pair*** button, which will download the ***.pem file*** to your machine. You will use this file in the next module.
 
+
+
 ![Screenshot 2023-01-20 at 10 06 35](https://user-images.githubusercontent.com/50238769/214070582-828a4b74-a05e-45dc-897f-b5cf511c6be0.png)
 
 
