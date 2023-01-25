@@ -98,13 +98,19 @@ An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC
 
 ## Create Key Pair
 
+
 ### What is a key pair?
 A key pair, consisting of a public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an Amazon EC2 instance. 
 - Give your key pair a name. Then choose the ***Create key pair*** button, which will download the ***.pem file*** to your machine. You will use this file in the next module.
 
 ![Screenshot 2023-01-20 at 10 06 35](https://user-images.githubusercontent.com/50238769/214070582-828a4b74-a05e-45dc-897f-b5cf511c6be0.png)
 
+
+
+
+
 ## Configuring a security group and launching your instance. 
+
 
 ### What is a security Group?
 A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance. 
@@ -115,22 +121,36 @@ You need to configure a security group before launching your instance. Security 
 
 To configure this, select ***Allow SSH traffic from My IP*** and select ***Allow HTTP traffic from the internet***.
 
+
+
 ![Screenshot 2023-01-20 at 10 25 42](https://user-images.githubusercontent.com/50238769/214075441-f8139b56-7dda-4c14-bcb2-bf176d31edac.png)
+
+
 
 ![Screenshot 2023-01-20 at 12 10 01](https://user-images.githubusercontent.com/50238769/214075525-bf5d66d0-fa25-4912-9103-58be064bb630.png)
 
+
+
 ## Launch EC2
+
+
 - Choose the ***Launch instance*** button to create your EC2 instance.
 
 
 # Module 3: Configuring Your Amazon RDS Database
 
 ## Database security methods
+
+
 - It is critical to secure your database from unauthorised access, and there are a number of strategies you can use to add security to your database. You will learn two of them in this module. They are:
 - ***Network security***: Limiting access to your database instance by rejecting traffic that’s not from authorised IP addresses
 - ***Password authentication and authorisation***: Limiting access to your database by requiring a username and password to access.
 
+
+
 ## Allow your EC2 instance to access your Amazon RDS database
+
+
 
 First, you will modify your Amazon RDS database to allow network access from your EC2 instance.
 In the previous module, you created security group rules to allow SSH and HTTP traffic to your WordPress EC2 instance. The same principle applies here. This time, you want to allow certain traffic from your EC2 instance into your Amazon RDS database.
@@ -172,10 +192,15 @@ In the previous module, you created security group rules to allow SSH and HTTP t
 
 
 
+
+
 ## SSH into your Instance
 
 
+
 ### What is SSH and why it used?
+
+
 
 SSH (Secure Shell) is a network protocol used to securely connect to a remote computer or server. It encrypts all data sent over the network, including passwords, preventing them from being intercepted by malicious actors. SSH allows for remote access to the command line interface of a remote system, making it possible to perform tasks and manage files on a remote machine. It also supports tunneling, forwarding TCP ports and X11 connections. SSH is a widely used and powerful tool that provides secure and efficient remote access to computer systems and servers, allowing for easy and secure management of remote resources.
 
