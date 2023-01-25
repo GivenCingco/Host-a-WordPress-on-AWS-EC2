@@ -11,6 +11,8 @@
 > NB: Everything was done on a Mac, so other steps may differ if you use a different operating system.
 
 ## What is WordPress?
+
+
 WordPress is widely chosen as a CMS because of its user-friendliness, adaptability and an extensive community. Its extensive collection of plugins and themes, search engine optimization-friendly characteristics and the ability to handle large traffic make it suitable for various types of websites. Being open-source, free to use and able to be self-hosted makes it a cost-efficient solution. It can be used to create a wide range of websites, including blogs, e-commerce sites, and portfolios, and can be easily customized using a variety of themes and plugins.
 
 
@@ -30,7 +32,12 @@ Amazon RDS for MySQL is a cost-efficient and secure solution for hosting a MySQL
 
 
 
+
+
+
 - WordPress uses MySQL, so select ***Standard create*** for the database creation method and choose the ***MySQL*** engine. 
+
+
 
 
 
@@ -67,6 +74,8 @@ Set the Initial database name to wordpress. This will ensure Amazon RDS creates 
 # Module 2 : Creating an Elastic Compute Cloud(EC2) Instance
 
 ## What is an Amazon EC2 instance?
+
+
 An Amazon EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC2) for running applications on the Amazon Web Services (AWS) infrastructure. Amazon provides various types of instances with different configurations of CPU, memory, storage and networking resources to suit user needs. Each type is available in various sizes to address specific workload requirements.
 
 - Sign into the AWS management console and ensure that you are in the N.Virginia(us-east-1) region.
@@ -127,27 +136,44 @@ First, you will modify your Amazon RDS database to allow network access from you
 In the previous module, you created security group rules to allow SSH and HTTP traffic to your WordPress EC2 instance. The same principle applies here. This time, you want to allow certain traffic from your EC2 instance into your Amazon RDS database.
 - To configure this, go to the Amazon RDS databases page in the AWS console. Choose the MySQL database you created in the earlier module in this guide.
 
+
+
 ![Screenshot 2023-01-20 at 13 51 55](https://user-images.githubusercontent.com/50238769/214079034-3ff22088-0998-4ada-bdda-f0865ef175d9.png)
+
+
 
 
 - Scroll to the ***Connectivity & security*** tab in the display and choose the security group listed in ***VPC security groups***. The console will take you to the security group configured for your database.
 
 
+
+
 ![Screenshot 2023-01-20 at 13 55 58](https://user-images.githubusercontent.com/50238769/214079388-82cddd9f-5ea5-470d-9996-ed603323466a.png)
+
+
 
 - Select the '***Inbound rules'*** tab, then choose the ***'Edit inbound rules'*** button to change the rules for your security group.
 
 
+
+
 ![Screenshot 2023-01-20 at 14 10 15](https://user-images.githubusercontent.com/50238769/214080818-4869bb3e-6558-4a26-91c6-ed812bd069a5.png)
+
+
 
 - The default security group has a rule that allows all inbound traffic from other instances in the default security group. However, since your WordPress EC2 instance is not in that security group, it will not have access to the Amazon RDS database. Change the ***Type*** property to ***MYSQL/Aurora***, which will update the ***Protocol*** and ***Port range*** to the proper values. Then, remove the current security group value configured for the ***Source***.
 - For ***Source***, enter wordpress. The console will show the available security groups that are configured. Choose the ***wordpress*** security group that you used for your EC2 instance.
 - After you choose the ***wordpress*** security group, the security group ID will be filled in. This rule will allow MySQL access to any EC2 instance with that security group configured.
 - When you’re finished, choose the Save rules button to save your changes.
 
+
+
 ![Screenshot 2023-01-20 at 14 26 50](https://user-images.githubusercontent.com/50238769/214081558-70545cdb-7a34-4d1a-9500-23a3524b09d6.png)
 
+
+
 ## SSH into your Instance
+
 
 ### What is SSH and why it used?
 
@@ -158,7 +184,11 @@ SSH (Secure Shell) is a network protocol used to securely connect to a remote co
 - Select the ***‘SSH client’*** tab and follow the instructions.
 
 
+
+
 ![Screenshot 2023-01-20 at 15 44 22](https://user-images.githubusercontent.com/50238769/214083293-e3eba386-ac6a-4181-99a1-d62d7cb6d106.png)
+
+
 
 - Previously, you downloaded the ***.pem file*** for the key pair of your instance. Locate that file now. It will likely be in a Downloads folder on your desktop.Open a terminal window. If you are on a Mac, you can use the default Terminal program that is installed, or you can use your own terminal. 
 - Copy and execute the commands below
@@ -169,38 +199,62 @@ SSH (Secure Shell) is a network protocol used to securely connect to a remote co
   chmod 400 wordpress.pem
   ssh -i "wordpress.pem" ec2-user@ec2-204-236-240-173.compute-1.amazonaws.com
 ```
+  
+  
 <img width="1251" alt="Screenshot 2023-01-20 at 16 35 32" src="https://user-images.githubusercontent.com/50238769/214085401-7bfe7a0c-d785-4527-9294-0286247855e4.png">
+  
+  
   
 ## Create a database user
 
 - You should have an active SSH session to your EC2 instance in the terminal. Now, you will connect to your MySQL database. First, run the following command in your terminal to install a MySQL client to interact with the database. 
 
+  
+  
 <img width="1275" alt="Screenshot 2023-01-20 at 17 36 32" src="https://user-images.githubusercontent.com/50238769/214085824-f4563976-5b63-46da-9cfa-343d2dde306e.png">
 
+  
+  
 - Go to the ***[Amazon RDS databases page](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#databases:)*** in the AWS console. You should see the wordpress database you created for the WordPress installation. Select it to find the hostname for your Amazon RDS database.
 
+  
+  
 ![Screenshot 2023-01-20 at 17 38 38](https://user-images.githubusercontent.com/50238769/214086148-618bad0b-a2ee-4710-a047-80d51e327259.png)
 
+  
+  
 - In the details of your Amazon RDS database, the hostname will be shown as the ***Endpoint*** in the ***Connectivity & security*** section.
+  
+  
   
 ![Screenshot 2023-01-20 at 17 39 13](https://user-images.githubusercontent.com/50238769/214086282-c5402df8-7ce6-4d2a-a7b0-17216b555fa4.png)
 
+  
+  
 - In your terminal, enter the following command to set an environment variable for your MySQL host. Be sure to replace “<your-endpoint>” with the hostname of your RDS instance. 
 
+  
 ```
   export MYSQL_HOST=<your-endpoit>
 ```  
 
+  
 <img width="1271" alt="Screenshot 2023-01-20 at 17 41 48" src="https://user-images.githubusercontent.com/50238769/214087363-3d7ebe28-1c0f-4471-b46d-ff61a2a17d9a.png">
+  
+  
   
 - Finally, create a database user for your WordPress application and give the user permission to access the wordpress database. Run the following commands in your terminal:  
 
+  
+  
 ```
 CREATE USER 'wordpress' IDENTIFIED BY 'wordpress-pass';
 GRANT ALL PRIVILEGES ON wordpress.* TO wordpress;
 FLUSH PRIVILEGES;
 Exit
 ```
+  
+  
 As a best practice, you should use a better password than wordpress-pass to secure your database.
 Write down both the username and password that you configure, as they will be needed in the next module when setting up your WordPress installation.  
 
@@ -211,15 +265,19 @@ Write down both the username and password that you configure, as they will be ne
 
 - To install Apache on your EC2 instance, run the following command in your terminal:
 
+  
 ```
 sudo yum install -y httpd
 ```
+  
 - To start the Apache web server, run the following command in your terminal:
+  
   
 ```
 sudo service httpd start
 ```
 
+  
 - You can see that your Apache web server is working and that your security groups are configured correctly by visiting the public DNS of your EC2 instance in your browser.
   
 - Go to the [EC2 Instances page](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:) and find your instance. Go to your instance destails tab and copy the ***Public IPv4 DNS***
@@ -228,29 +286,40 @@ sudo service httpd start
 
 - First, download and uncompress the software by running the following commands in your terminal:
 
+  
 ```
 wget https://wordpress.org/latest.tar.gz
 tar -xzf latest.tar.gz
 ```
   
+  
 - If you run ls to view the contents of your directory, you will see a tar file and a directory called wordpress with the uncompressed contents.
 
+  
 ```
 ls
 latest.tar.gz  wordpress
 ```
+  
 - Change the directory to the wordpress directory and create a copy of the default config file using the following commands:
 
+  
 ```
 cd wordpress
 cp wp-config-sample.php wp-config.php
 ```
+  
 - Then, open the ***wp-config.php*** file using the nano editor by running the following command.
+  
   
 ```
 nano wp-config.php
 ```  
+  
+  
 - You need to edit two areas of configuration. First, edit the database configuration by changing the following lines:  
+  
+  
   
 ```  
 // ** MySQL settings - You can get this info from your web host ** //
@@ -277,6 +346,8 @@ The values should be:
   
 The second configuration section you need to configure is the Authentication Unique Keys and Salts. It looks as follows in the configuration file:  
   
+  
+  
 ```  
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -296,6 +367,8 @@ define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
 define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
 define( 'NONCE_SALT',       'put your unique phrase here' );  
 ```  
+  
+  
 Go to this ***[link](https://api.wordpress.org/secret-key/1.1/salt/)*** to generate values for this configuration section. You can replace the entire content in that section with the content from the link.
 
 You can save and exit from nano by entering ***CTRL+O*** followed by ***CTRL+X***.
@@ -310,24 +383,34 @@ In this step, you will make your Apache web server handle requests for WordPress
 First, install the application dependencies you need for WordPress. In your terminal, run the following command.  
 
   
+  
 ```  
 sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2  
 ```  
+  
+  
 Second, change to the proper directory by running the following command:  
+  
   
 ```  
 cd /home/ec2-user  
 ```  
+  
 Then, copy your WordPress application files into the ***/var/www/html*** directory used by Apache.  
+ 
   
 ```  
 sudo cp -r wordpress/* /var/www/html/  
 ```  
+  
 Finally, restart the Apache web server to pick up the changes.  
+  
   
 ```  
 sudo service httpd restart  
 ```
+  
+  
 That’s it. You have a live, publicly accessible WordPress installation using a fully managed MySQL database on Amazon RDS.
 Copy your Public DNS name to your browser to continue with the WordPress installation. 
   
