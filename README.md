@@ -8,19 +8,19 @@
 > Some code was re-used from this ***[AWS walk-through](https://aws.amazon.com/getting-started/hands-on/deploy-wordpress-with-amazon-rds/)***
 
 
-> NB: Everything was done on a Mac, so other steps may differ if you use a different operating system.
+> NB: Everything was done on a Mac OS operating system, so other steps may differ if you use a different operating system.
 
 ## What is WordPress?
 
 
-WordPress is widely chosen as a CMS because of its user-friendliness, adaptability and an extensive community. Its extensive collection of plugins and themes, search engine optimization-friendly characteristics and the ability to handle large traffic make it suitable for various types of websites. Being open-source, free to use and able to be self-hosted makes it a cost-efficient solution. It can be used to create a wide range of websites, including blogs, e-commerce sites, and portfolios, and can be easily customized using a variety of themes and plugins.
+WordPress has been widely chosen as a CMS because of its user-friendliness, adaptability, and extensive community. Its extensive collection of plugins and themes, search engine optimization-friendly characteristics and the ability to handle large traffic make it suitable for various websites. Being open-source, free to use and able to be self-hosted makes it a cost-efficient solution. It can be used to create a wide range of websites, including blogs, e-commerce sites, and portfolios, and can be easily customized using a variety of themes and plugins.
 
 
 
 
 ## Module 1 : Relational Database
 
-Amazon RDS for MySQL is a cost-efficient and secure solution for hosting a MySQL database for a WordPress website. It provides scalability, high availability, security, and ease of management. The pay-as-you-go pricing model allows for cost-efficiency and eliminates the need for upfront costs or ongoing maintenance for a physical infrastructure. Additionally, it is compatible with WordPress, which uses MySQL as its database management system and it integrates seamlessly with other AWS services such as Elastic Beanstalk, CloudFront, and Lambda for easy deployment, caching and event-driven processing.
+Amazon RDS for MySQL is a cost-efficient and secure solution for hosting a MySQL database for a WordPress website. It provides scalability, high availability, security, and ease of management. The pay-as-you-go pricing model allows for cost efficiency and eliminates the need for upfront costs or ongoing maintenance for a physical infrastructure. Additionally, it is compatible with WordPress, which uses MySQL as its database management system and it integrates seamlessly with other AWS services such as Elastic Beanstalk, CloudFront, and Lambda for easy deployment, caching and event-driven processing.
 
 
 - Access the AWS Management Console and navigate to the ***[RDS](https://us-east-1.console.aws.amazon.com/rds/home?region=us-east-1#)*** section.
